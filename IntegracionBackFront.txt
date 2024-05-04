@@ -359,11 +359,11 @@ EJERCICIOPRACTICA/
 					
 					// Importamos el módulo de Sequelieze de nuestra dependencia del package.json.
 
-							import { Sequelieze } from "sequelize";
+							import Sequelize from "sequelize";
 
 							// Creamos una instancia de Sequelieze a través de su constructor, para exportar.
 
-							const sequelize = new Sequelieze(
+							const sequelize = new Sequelize (
 								{
 									dialect: "sqlite", // El dialecto es, de qué forma o "lenguaje" se creará y harán consultas sobre la BBDD. 
 									storage: "./Back/Databases/db.sqlite" // Ésta es la dirección de nuestro directorio de adónde queremos guardar la BBDD que creemos.
@@ -423,14 +423,14 @@ EJERCICIOPRACTICA/
 						
 						// Primeramente, importamos nuestro objeto instanciado de la BBDD que creamos en "db.js":
 
-							import { sequelize } from "./db.js"; // Observar que con ./ ésto haciendo referencia a que me paro en el directorio actual. Recordar de SOP.
+							import sequelize from "./db.js"; // Observar que con ./ ésto haciendo referencia a que me paro en el directorio actual. Recordar de SOP.
 							
 					- SEGUNDO: Dejaremos IMPORTADOS (todavía no los creamos, eso será en el siguiente paso) los modelos/entidades que nos servirán para construir la Base de Datos:
 					- NOTA*: Recordar de DSI que una Clase Entity/Entidad es aquella la cuál es candidata a poder ser almacenada en una BBDD. Lo mismo pasa acá. 
 			
 						// Segundo, dejaremos los importes pendientes a los modelos/entidades de nuestra lógica de negocios, que tendrán que estar obligadamente (por un tema de consistencia) en la carpeta de Models.
 
-							import { Cliente } from "./Models/clientes.js" // Si el archivo no existía antes, se crea automáticamente.
+							import Cliente from "./Models/clientes.js" // Si el archivo no existía antes, se crea automáticamente.
 							
 					- TERCERO - MUY IMPORTANTE: Crearemos la función que nos permitirá autenticar y sincronizar la Base de Datos. Ésto se hace con motivo de que como en JS todas éstas operaciones son asíncronas, tenga que sincronizarse a los últimos cambios que hagamos.
 						
@@ -601,7 +601,7 @@ EJERCICIOPRACTICA/
 
 						// Primer paso: Importamos nuestro objeto "sequelize", que tenemos en "db.js";
 
-						import { sequelize } from "../db.js"  
+						import sequelize from "../db.js"  
 						
 					- SEGUNDO: Creamos la definición de nuestro modelo "Cliente": Para ello, usaremos el método .define() de nuestro objeto sequelize, importado en el punto anterior.
 					
@@ -628,7 +628,7 @@ EJERCICIOPRACTICA/
 						
 					- TERCERO: Configuramos los atributos de nuestro modelo "Cliente", siguiendo las convenciones de todo objeto JavaScript (clave-valor):
 					
-						import { sequelize } from "../db.js"  
+						import sequelize from "../db.js"  
 						
 						import DataTypes from "sequelize";
 					
@@ -940,7 +940,7 @@ EJERCICIOPRACTICA/
 					const clientesFiltros = await Cliente.findAll(
 						{
 							where : {
-								idCliente: {[Op.between] : [5,15]}; // Los atributos se seleccionan con []
+							idCliente: { [Op.between] : [5, 15] } // Los atributos se seleccionan con []
 							}
 						}
 					)
@@ -1129,9 +1129,9 @@ EJERCICIOPRACTICA/
 				
 						// Importamos las dependencias necesarias para que nuestra aplicación esté andando.
 
-						import { express } from "express";
-						import { cors } from "cors";
-						import { dotenv } from "dotenv";
+						import express from "express";
+						import cors from "cors";
+						import dotenv from "dotenv";
 						
 				- Después, tendremos que importar todos los otros módulos que hemos venido trabajando hasta ahora: La/las funciones de conexión con la
 				BBDD (en ÉSTE CASO EN PARTICULAR, nos servirá la de "db-mockaroo.js", SIN EMBARGO EN EL PARCIAL HAY QUE USAR LA DE "db-init.js"), y 
@@ -1139,8 +1139,8 @@ EJERCICIOPRACTICA/
 				
 						// Importamos las funciones necesarias con las que hemos ido trabajando.
 
-						// import { dbInit } from "./Databases/db-init.js" // ÉSTE SE USARÁ EL DÍA DEL PARCIAL. NOS DARÁN LA BBDD.
-						import { crearBaseDatosClientes } from "./Databases/db-mockaroo.js"; // COMO TUVIMOS QUE CREAR LA BASE DE DATOS, IMPORTAMOS ÉSTE.
+						// import dbInit from "./Databases/db-init.js" // ÉSTE SE USARÁ EL DÍA DEL PARCIAL. NOS DARÁN LA BBDD.
+						import crearBaseDatosClientes from "./Databases/db-mockaroo.js"; // COMO TUVIMOS QUE CREAR LA BASE DE DATOS, IMPORTAMOS ÉSTE.
 						import { conseguirTodosLosClientes, conseguirClientesFiltroId, conseguirNombreYApellidoClientes } from "./Models/clientes.js"; // SON TODOS LOS SERVICIOS QUE HEMOS TRABAJADO HASTA AHORA.
 
 
@@ -1229,7 +1229,7 @@ EJERCICIOPRACTICA/
 
 						// Importamos las funciones necesarias con las que hemos ido trabajando.
 
-						// import { dbInit } from "./Databases/db-init.js" // ÉSTE SE USARÁ EL DÍA DEL PARCIAL. NOS DARÁN LA BBDD.
+						// import dbInit from "./Databases/db-init.js" // ÉSTE SE USARÁ EL DÍA DEL PARCIAL. NOS DARÁN LA BBDD.
 						import crearBaseDatosClientes from "./Databases/db-mockaroo.js"; // COMO TUVIMOS QUE CREAR LA BASE DE DATOS, IMPORTAMOS ÉSTE.
 						import { conseguirTodosLosClientes, conseguirClientesFiltroId, conseguirNombreYApellidoClientes } from "./Services/clientes.service.js";
 
