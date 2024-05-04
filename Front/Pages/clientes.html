@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Clientes  - HTML</title>
+
+    <!-- Bootstrap - Estilos -->
+
+    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap - Scripts -->
+
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    
+    <h1>TABLA: CLIENTES</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th scope="col"> ID_CLIENTE </th>
+                <th scope="col"> NOMBRE_CLIENTE </th>
+                <th scope="col"> APELLIDO_CLIENTE </th>
+                <th scope="col"> FECHA_AFILIACION </th>
+                <th scope="col"> ES_CLIENTE_PREMIUM </th>
+            </tr>
+        </thead>
+        
+        <!-- SÓLO NOS LIMITAREMOS A CREAR EL tbody CON EL id "Datos" YA QUE SERÁ ACCEDIDO POR EL JS -->
+        <!-- EL JS SE ENCARGARÁ DE CREAR FILA POR FILA... -->
+        
+        <tbody id="Datos">
+            <tr>
+                <!-- Ésta parte del código no se pone, SE HACE EN EL .JS -->
+            </tr>
+        </tbody>
+    </table>
+    
+
+
+    <!-- Script Personal - consumirApiClientes -->
+    <script src="../Scripts/consumirApiClientes.js"></script>
+
+</body>
+</html>
