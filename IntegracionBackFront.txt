@@ -940,7 +940,7 @@ EJERCICIOPRACTICA/
 					const clientesFiltros = await Cliente.findAll(
 						{
 							where : {
-								[idCliente.between] : [5,15]; // Los atributos se seleccionan con []
+								idCliente: {[Op.between] : [5,15]}; // Los atributos se seleccionan con []
 							}
 						}
 					)
